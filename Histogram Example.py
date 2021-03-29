@@ -1,4 +1,6 @@
 # Lists
+from typing import List, Any, Union
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -12,13 +14,16 @@ Attendance = [74498, 54130, 52983, 54216, 40437, 59899, 58336, 38780, 31851, 310
 # Derive average league position for each team
 np_league_pos = np.array(League_Positions)
 np_ave_league_pos = np_league_pos.mean(axis=0)
+np_display_attendance = np.array(Attendance) / 25
 
 
 # Define parameters for a scatter graph
-plt.scatter(Turnover, np_ave_league_pos, s=Attendance, alpha=0.7)
+plt.scatter(Turnover, np_ave_league_pos, s=np_display_attendance, alpha=0.7)
 plt.xlabel('Turnover £m')
 plt.ylabel(' Average League Position')
-plt.title('Turnover to Finishing League Position')
+plt.title('Highest Earning Premier League Teams - Turnover to Average League Position')
 plt.grid(True)
+plt.gca().invert_yaxis()
 
 plt.show()
+plt.clf()
