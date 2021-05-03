@@ -144,24 +144,6 @@ ave_rating_6_to_10_df = graph_ave_rating_df[graph_ave_rating_df["rank"].between(
 ave_rating_40_to_45_df = graph_ave_rating_df[graph_ave_rating_df["rank"].between(40, 45)]
 ave_rating_46_to_50_df = graph_ave_rating_df[graph_ave_rating_df["rank"].between(46, 50)]
 
-# Brian Clough desired Skills and Attributes
-# 4 Data Frames that show the key things Brian Clough said a great team needed.
-defenders_who_can_head_df = squad_list_df[(squad_list_df['Simple Position'] == 'DEF')]
-defenders_who_can_head_df = defenders_who_can_head_df.groupby(['rank', 'country_abrv', 'Simple Position'],
-                                                              as_index=False)['Heading'].mean()
-defenders_who_can_tackle_df = squad_list_df[(squad_list_df['Simple Position'] == 'DEF')]
-defenders_who_can_tackle_df = defenders_who_can_tackle_df.groupby(['rank', 'country_abrv', 'Simple Position'],
-                                                                  as_index=False)['Tackling'].mean()
-defenders_who_can_head_and_tackle_df = defenders_who_can_head_df.merge(defenders_who_can_tackle_df, how='left')
-defenders_who_can_head_and_tackle_df['head_and_tackle'] = defenders_who_can_head_and_tackle_df[['Heading', 'Tackling']]\
-    .mean(axis=1)
-midfielders_who_can_pass_df = squad_list_df[(squad_list_df['Simple Position'] == 'MID')]
-midfielders_who_can_pass_df = midfielders_who_can_pass_df.groupby(['rank', 'country_abrv', 'Simple Position'],
-                                                                  as_index=False)['Passing'].mean()
-forwards_who_can_score_df = squad_list_df[(squad_list_df['Simple Position'] == 'FWD')]
-forwards_who_can_score_df = forwards_who_can_score_df.groupby(['rank', 'country_abrv', 'Simple Position'],
-                                                              as_index=False)['Finishing'].mean()
-
 # Johan Cryuff Desired Skills and Attributes
 # as a lot of these stats aren't applicable to goalkeepers they've been ruled out for this set of averages
 outfield_players_df = squad_list_df[(squad_list_df['Simple Position'] != 'GK')]
@@ -190,11 +172,6 @@ flair_df = attack_minded_players_df.groupby(['rank', 'country_abrv'], as_index=F
 
 # Create csv files for our graph data
 squad_list_df.to_csv('squad_list.csv', header=True, encoding='ISO-8859-1', index=False)
-
-ave_rating_1_to_5_df.to_csv('ave_rating_1_to_5.csv', header=True, encoding='ISO-8859-1', index=False)
-ave_rating_6_to_10_df.to_csv('ave_rating_1_to_5.csv', header=True, encoding='ISO-8859-1', index=False)
-
-defenders_who_can_head_and_tackle_df.to_csv('defenders_who_can_tackle_df.csv', header=True, encoding='ISO-8859-1', index=False)
-midfielders_who_can_pass_df.to_csv('midfielders_who_can_pass_df.csv', header=True, encoding='ISO-8859-1', index=False)
-forwards_who_can_score_df.to_csv('forwards_who_can_score_df.csv', header=True, encoding='ISO-8859-1', index=False)
-
+outfield_players_df.to_csv('outfield_players_df.csv', header=True, encoding='ISO-8859-1', index=False)
+stamina_df.to_csv('stamina_df.csv', header=True, encoding='ISO-8859-1', index=False)
+work_rate_df.to_csv('work_rate_df.csv', header=True, encoding='ISO-8859-1', index=False)
