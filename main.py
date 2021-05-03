@@ -14,8 +14,12 @@
 #                                                            April 2021.
 # Outputs
 # -------
-#
-#
+# 1) squad_list_df._csv        : The top 50 teams and 23 man squads for each of them.
+# 2) outfield_players_df.csv   : A version of the squad list data frame without goalkeepers.
+# 3) stamina_df.csv            : Mean stamina rating for outfield players this is used in two of the graph building
+#                                programs so it's produced once here to save on duplication.
+# 4) work_rate_df.csv          : As with stamina this is used in two places. It gives the mean work rate rating for
+#                                all players.
 #
 import numpy as np
 import pandas as pd
