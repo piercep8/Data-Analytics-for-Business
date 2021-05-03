@@ -1,5 +1,21 @@
 #
-# Build Squad List Files
+# Program 1 Clean and Convert Raw Data
+# ------------------------------------
+# In this program we'll do the following...
+#    * Use the FIFA rankings to select the top 50 countries in the world at at April 2021.
+#    * Create 23 man squads for each of those countries based on the "Scout Rating" score
+#      from the Football Manager database.
+#
+# Inputs
+# ------
+# 1) Football Manager March 20 Full Attribute Database.csv : Attributes and statistics for 150,000 players as at
+#                                                            March 2020.
+# 2) fifa_ranking-2021-04-07.csv                           : An historical list of each nation's FIFA ranking up to
+#                                                            April 2021.
+# Outputs
+# -------
+#
+#
 #
 import numpy as np
 import pandas as pd
